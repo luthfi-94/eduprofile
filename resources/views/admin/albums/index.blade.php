@@ -5,7 +5,7 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="fw-bold mb-1">Album</h2>
+            <h4 class="fw-semibold mb-1">Album</h4>
             <p class="text-muted mb-0">Manage school photo albums.</p>
         </div>
         <a href="{{ route('admin.albums.create') }}" class="btn btn-primary">

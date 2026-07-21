@@ -5,7 +5,7 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="fw-bold mb-1">Kontak</h2>
+            <h4 class="fw-semibold mb-1">Kontak</h4>
             <p class="text-muted mb-0">Kelola informasi kontak resmi untuk sekolah.</p>
         </div>
         <a href="{{ route('admin.contacts.create') }}" class="btn btn-primary">

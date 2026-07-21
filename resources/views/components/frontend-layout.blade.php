@@ -15,21 +15,23 @@
 <body class="bg-light text-dark">
     <header class="sticky-top shadow-sm bg-white">
         <nav class="navbar navbar-expand-lg navbar-light container py-3">
-            <a class="navbar-brand fw-bold fs-4" href="{{ route('frontend.home') }}">EduProfile</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#frontendNavbar" aria-controls="frontendNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="frontendNavbar">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
-                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.school-profile') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.school-profile') }}">School Profile</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.principal') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.principal') }}">Principal</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.teachers') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.teachers') }}">Teachers</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.facilities') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.facilities') }}">Facilities</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.news*') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.news') }}">News</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.gallery*') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.gallery') }}">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.ppdb') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.ppdb') }}">PPDB</a></li>
-                    <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.contact') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.contact') }}">Contact</a></li>
-                </ul>
+            <div class="container">
+                <a class="navbar-brand fw-bold mb-2" href="{{ route('frontend.home') }}">EduProfile</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#frontendNavbar" aria-controls="frontendNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="frontendNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.school-profile') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.school-profile') }}">School Profile</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.principal') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.principal') }}">Principal</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.teachers') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.teachers') }}">Teachers</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.facilities') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.facilities') }}">Facilities</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.news*') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.news') }}">News</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.gallery*') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.gallery') }}">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.ppdb') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.ppdb') }}">PPDB</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('frontend.contact') ? 'active fw-semibold text-primary' : '' }}" href="{{ route('frontend.contact') }}">Contact</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -43,7 +45,7 @@
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6">
                     <h5 class="fw-bold mb-2">EduProfile</h5>
-                    <p class="mb-0 text-light-emphasis">A modern school profile website designed for engagement, information, and easy communication.</p>
+                    <p class="mb-0 text-light">A modern school profile website designed for engagement, information, and easy communication.</p>
                 </div>
                 <div class="col-lg-6 text-lg-end">
                     <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
