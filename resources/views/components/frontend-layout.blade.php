@@ -21,10 +21,11 @@
             </button>
             <div class="collapse navbar-collapse" id="frontendNavbar">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#welcome">Welcome</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
                     <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ppdb">PPDB</a></li>
                 </ul>
             </div>
         </nav>
@@ -39,7 +40,7 @@
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6">
                     <h5 class="fw-bold mb-2">EduProfile</h5>
-                    <p class="mb-0 text-light-emphasis">Modern school profile website built with Laravel and Bootstrap.</p>
+                    <p class="mb-0 text-light-emphasis">A modern school profile website designed for engagement, information, and easy communication.</p>
                 </div>
                 <div class="col-lg-6 text-lg-end">
                     <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>

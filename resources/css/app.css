@@ -37,3 +37,7 @@ body {
     padding-top: 5rem;
     padding-bottom: 5rem;
 }
+
+.hero-section {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, #1d4ed8 100%);
+}
