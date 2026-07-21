@@ -36,9 +36,9 @@
                         <i class="bi bi-gear"></i>
                         <span>Settings</span>
                     </a>
-                    <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1">
+                    <a href="{{ route('admin.profiles.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.profiles.*') ? 'bg-white bg-opacity-25' : '' }}">
                         <i class="bi bi-person-badge"></i>
-                        <span>Principal</span>
+                        <span>School Profile</span>
                     </a>
                     <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1">
                         <i class="bi bi-people"></i>
@@ -193,5 +193,23 @@
             </nav>
         </div>
     </div>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.ckeditor').forEach(function (element) {
+                if (!element.dataset.ckeditorInitialized) {
+                    ClassicEditor
+                        .create(element)
+                        .then(function (editor) {
+                            element.dataset.ckeditorInitialized = 'true';
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                        });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
