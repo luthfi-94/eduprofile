@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
@@ -24,6 +25,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('profiles', AdminProfileController::class)->except(['show']);
     Route::resource('teachers', TeacherController::class)->except(['show']);
     Route::resource('facilities', FacilityController::class)->except(['show']);
+    Route::resource('categories', CategoryController::class)->except(['show']);
 });
 
 Route::middleware('auth')->group(function () {
