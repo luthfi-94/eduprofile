@@ -11,6 +11,7 @@ use App\Models\Profile;
 use App\Models\PpdbInfo;
 use App\Models\Setting;
 use App\Models\Teacher;
+// use App\Models\Gallery;
 
 class PageController extends Controller
 {

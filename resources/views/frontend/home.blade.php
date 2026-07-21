@@ -14,11 +14,11 @@
                 <div class="col-lg-5">
                     <div class="card border-0 shadow-lg rounded-4">
                         <div class="card-body p-4">
-                            <h5 class="fw-bold mb-3">Why Students Thrive Here</h5>
+                            <h5 class="fw-bold mb-3">Mengapa Siswa Berkembang di Sini</h5>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Modern and supportive campus</li>
-                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Experienced educators</li>
-                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Balanced academic and character development</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sekolah modern dan mendukung</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Pendidik berpengalaman</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Pengembangan akademik dan karakter yang seimbang</li>
                             </ul>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
         </div>
     </section>
 
-    <section id="welcome" class="py-5 bg-white">
+    {{-- <section id="welcome" class="py-5 bg-white">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-5">
@@ -61,9 +61,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section id="news" class="py-5">
+    {{-- <section id="news" class="py-5">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="fw-bold mb-0">Latest News</h2>
@@ -99,9 +99,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section id="facilities" class="py-5 bg-white">
+    {{-- <section id="facilities" class="py-5 bg-white">
         <div class="container">
             <h2 class="fw-bold mb-4">Fasilitas</h2>
             <div class="row g-4">
@@ -134,9 +134,74 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section id="gallery" class="py-5">
+    {{-- Fasilitas --}}
+    <section id="facilities" class="py-5 bg-white">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold mb-0">Fasilitas</h2>
+
+                <a href="{{ route('frontend.facilities') }}" class="btn btn-outline-primary">
+                    Lihat Semua
+                </a>
+            </div>
+
+            <div class="row g-4">
+
+                @forelse($facilities as $facility)
+
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow">
+
+                            @if($facility->photo)
+                                <img src="{{ asset('storage/' . $facility->photo) }}"
+                                    class="card-img-top"
+                                    alt="{{ $facility->title }}"
+                                    style="height:220px; object-fit:cover;">
+                            @else
+                                <img src="{{ asset('images/no-image.jpg') }}"
+                                    class="card-img-top"
+                                    alt="No Image"
+                                    style="height:220px; object-fit:cover;">
+                            @endif
+
+                            <div class="card-body d-flex flex-column">
+
+                                <h5 class="fw-bold">
+                                    {{ $facility->title }}
+                                </h5>
+
+                                <h5 class="fw-semibold mt-3">
+                                    {{ Str::limit(strip_tags($facility->description), 100) }}
+                                </h5>
+
+                                {{-- <a href="{{ route('frontend.facilities') }}"
+                                    class="btn btn-primary mt-auto">
+                                    <i class="bi bi-eye"></i> Lihat Detail
+                                </a> --}}
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                @empty
+
+                    <div class="col-12">
+                        <div class="alert alert-info text-center">
+                            Belum ada data fasilitas.
+                        </div>
+                    </div>
+
+                @endforelse
+
+            </div>
+        </div>
+    </section>
+    
+    {{-- Gallery --}}
+    <section id="gallery" class="py-5 bg-primary text-white">
         <div class="container">
             <h2 class="fw-bold mb-4">Gallery Preview</h2>
             <div class="row g-4">
@@ -173,8 +238,9 @@
             </div>
         </div>
     </section>
-
-    <section class="py-5 bg-primary text-white">
+    
+    {{-- statistik --}}
+    {{-- <section class="py-5 bg-primary text-white">
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-8">
@@ -199,17 +265,17 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section id="ppdb" class="py-5 bg-white">
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-7">
-                    <h2 class="fw-bold mb-3">PPDB Registration</h2>
-                    <p class="text-muted mb-4">Join our vibrant school community and start your learning journey with us. Registration is now open for new students.</p>
+                    <h2 class="fw-bold mb-3">Registrasi PPDB</h2>
+                    <p class="text-muted mb-4">Bergabunglah dengan komunitas sekolah kami yang dinamis dan mulailah perjalanan belajar Anda bersama kami. Pendaftaran sekarang dibuka untuk siswa baru.</p>
                 </div>
                 <div class="col-lg-5 text-lg-end">
-                    <a href="#" class="btn btn-primary btn-lg">Register Now</a>
+                    <a href="{{ route('frontend.ppdb') }}" class="btn btn-primary btn-lg">Daftar Sekarang</a>
                 </div>
             </div>
         </div>
