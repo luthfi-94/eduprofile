@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PostController;
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('albums', AlbumController::class)->except(['show']);
     Route::resource('galleries', GalleryController::class)->except(['show']);
     Route::resource('ppdb_infos', PpdbInfoController::class)->except(['show']);
+    Route::resource('contacts', ContactController::class)->except(['show']);
 });
 
 Route::middleware('auth')->group(function () {
