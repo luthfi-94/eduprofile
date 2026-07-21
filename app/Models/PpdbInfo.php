@@ -13,4 +13,9 @@ class PpdbInfo extends Model
         'registration_open',
         'registration_close',
     ];
+
+    protected $casts = [
+        'registration_open' => 'date',
+        'registration_close' => 'date',
+    ];
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -16,6 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.home');
 });
+
+Route::get('/school-profile', [PageController::class, 'schoolProfile'])->name('frontend.school-profile');
+Route::get('/principal', [PageController::class, 'principal'])->name('frontend.principal');
+Route::get('/teachers', [PageController::class, 'teachers'])->name('frontend.teachers');
+Route::get('/facilities', [PageController::class, 'facilities'])->name('frontend.facilities');
+Route::get('/news', [PageController::class, 'news'])->name('frontend.news');
+Route::get('/news/{post:slug}', [PageController::class, 'showNews'])->name('frontend.news.show');
+Route::get('/gallery', [PageController::class, 'gallery'])->name('frontend.gallery');
+Route::get('/gallery/{album:slug}', [PageController::class, 'showGallery'])->name('frontend.gallery.show');
+Route::get('/ppdb', [PageController::class, 'ppdb'])->name('frontend.ppdb');
+Route::get('/contact', [PageController::class, 'contact'])->name('frontend.contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
