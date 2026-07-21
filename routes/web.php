@@ -4,6 +4,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
@@ -30,6 +31,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('categories', CategoryController::class)->except(['show']);
     Route::resource('posts', PostController::class)->except(['show']);
     Route::resource('albums', AlbumController::class)->except(['show']);
+    Route::resource('galleries', GalleryController::class)->except(['show']);
 });
 
 Route::middleware('auth')->group(function () {
