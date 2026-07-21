@@ -109,9 +109,9 @@
                 <nav aria-label="breadcrumb" class="mb-4">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}" class="text-decoration-none">Admin</a></li>
-                        @isset($breadcrumb)
+                        @if (isset($breadcrumb))
                             {{ $breadcrumb }}
-                        @endisset
+                        @endif
                     </ol>
                 </nav>
 
