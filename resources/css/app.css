@@ -45,3 +45,15 @@ body {
 .hero-section {
     background: linear-gradient(135deg, var(--bs-primary) 0%, #1d4ed8 100%);
 }
+
+.admin-nav-link {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.admin-nav-link:hover {
+    transform: translateX(2px);
+}
+
+.card {
+    border-radius: 0.75rem;
+}

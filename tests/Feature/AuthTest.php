@@ -23,7 +23,11 @@ class AuthTest extends TestCase
 
         $response = $this->actingAs($user)->get('/dashboard');
 
-        $response->assertOk();
-        $response->assertSee('Dashboard');
+        $response->assertRedirect('/admin/dashboard');
+
+        $this->actingAs($user)
+            ->get('/admin/dashboard')
+            ->assertOk()
+            ->assertSee('Dashboard');
     }
 }

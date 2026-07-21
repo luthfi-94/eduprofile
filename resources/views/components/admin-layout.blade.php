@@ -28,70 +28,7 @@
 
                 <nav class="px-3 py-3">
                     <div class="text-uppercase small fw-semibold opacity-75 mb-2">Main</div>
-                    <a href="{{ route('admin.dashboard') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.dashboard') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-speedometer2"></i>
-                        <span>Dashboard</span>
-                    </a>
-                    <a href="{{ route('admin.settings.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.settings.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-gear"></i>
-                        <span>Settings</span>
-                    </a>
-                    <a href="{{ route('admin.profiles.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.profiles.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-person-badge"></i>
-                        <span>School Profile</span>
-                    </a>
-                    <a href="{{ route('admin.teachers.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.teachers.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-people"></i>
-                        <span>Teachers</span>
-                    </a>
-                    <a href="{{ route('admin.facilities.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.facilities.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-building"></i>
-                        <span>Facilities</span>
-                    </a>
-                    <a href="{{ route('admin.categories.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.categories.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-tags"></i>
-                        <span>Categories</span>
-                    </a>
-                    <a href="{{ route('admin.posts.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.posts.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-newspaper"></i>
-                        <span>Posts</span>
-                    </a>
-                    <a href="{{ route('admin.albums.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.albums.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-images"></i>
-                        <span>Albums</span>
-                    </a>
-                    <a href="{{ route('admin.galleries.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.galleries.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-image-fill"></i>
-                        <span>Galleries</span>
-                    </a>
-                    <a href="{{ route('admin.ppdb_infos.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.ppdb_infos.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-file-earmark-text"></i>
-                        <span>PPDB</span>
-                    </a>
-                    <a href="{{ route('admin.contacts.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.contacts.*') ? 'bg-white bg-opacity-25' : '' }}">
-                        <i class="bi bi-envelope"></i>
-                        <span>Contacts</span>
-                    </a>
-                    <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1">
-                        <i class="bi bi-people"></i>
-                        <span>Teachers</span>
-                    </a>
-                    <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1">
-                        <i class="bi bi-building"></i>
-                        <span>Facilities</span>
-                    </a>
-                    <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1">
-                        <i class="bi bi-newspaper"></i>
-                        <span>News</span>
-                    </a>
-                    <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1">
-                        <i class="bi bi-images"></i>
-                        <span>Gallery</span>
-                    </a>
-                    <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1">
-                        <i class="bi bi-envelope"></i>
-                        <span>Contact</span>
-                    </a>
+                    <x-admin-nav-links variant="desktop" />
                 </nav>
             </div>
 
@@ -190,38 +127,7 @@
         </div>
         <div class="offcanvas-body p-0">
             <nav class="p-3">
-                <a href="{{ route('admin.dashboard') }}" class="d-flex align-items-center gap-2 text-decoration-none text-dark px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.dashboard') ? 'bg-primary text-white' : 'bg-light' }}">
-                    <i class="bi bi-speedometer2"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="{{ route('admin.settings.index') }}" class="d-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.settings.*') ? 'bg-primary text-white' : 'text-dark' }}">
-                    <i class="bi bi-gear"></i>
-                    <span>Settings</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark px-3 py-2 rounded mb-1">
-                    <i class="bi bi-person-badge"></i>
-                    <span>Principal</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark px-3 py-2 rounded mb-1">
-                    <i class="bi bi-people"></i>
-                    <span>Teachers</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark px-3 py-2 rounded mb-1">
-                    <i class="bi bi-building"></i>
-                    <span>Facilities</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark px-3 py-2 rounded mb-1">
-                    <i class="bi bi-newspaper"></i>
-                    <span>News</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark px-3 py-2 rounded mb-1">
-                    <i class="bi bi-images"></i>
-                    <span>Gallery</span>
-                </a>
-                <a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark px-3 py-2 rounded mb-1">
-                    <i class="bi bi-envelope"></i>
-                    <span>Contact</span>
-                </a>
+                <x-admin-nav-links variant="mobile" />
             </nav>
         </div>
     </div>

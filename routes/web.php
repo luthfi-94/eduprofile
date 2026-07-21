@@ -14,24 +14,26 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('frontend.home');
+Route::name('frontend.')->group(function () {
+    Route::get('/', function () {
+        return view('frontend.home');
+    })->name('home');
+
+    Route::get('/school-profile', [PageController::class, 'schoolProfile'])->name('school-profile');
+    Route::get('/principal', [PageController::class, 'principal'])->name('principal');
+    Route::get('/teachers', [PageController::class, 'teachers'])->name('teachers');
+    Route::get('/facilities', [PageController::class, 'facilities'])->name('facilities');
+    Route::get('/news', [PageController::class, 'news'])->name('news');
+    Route::get('/news/{post:slug}', [PageController::class, 'showNews'])->name('news.show');
+    Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
+    Route::get('/gallery/{album:slug}', [PageController::class, 'showGallery'])->name('gallery.show');
+    Route::get('/ppdb', [PageController::class, 'ppdb'])->name('ppdb');
+    Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 });
 
-Route::get('/school-profile', [PageController::class, 'schoolProfile'])->name('frontend.school-profile');
-Route::get('/principal', [PageController::class, 'principal'])->name('frontend.principal');
-Route::get('/teachers', [PageController::class, 'teachers'])->name('frontend.teachers');
-Route::get('/facilities', [PageController::class, 'facilities'])->name('frontend.facilities');
-Route::get('/news', [PageController::class, 'news'])->name('frontend.news');
-Route::get('/news/{post:slug}', [PageController::class, 'showNews'])->name('frontend.news.show');
-Route::get('/gallery', [PageController::class, 'gallery'])->name('frontend.gallery');
-Route::get('/gallery/{album:slug}', [PageController::class, 'showGallery'])->name('frontend.gallery.show');
-Route::get('/ppdb', [PageController::class, 'ppdb'])->name('frontend.ppdb');
-Route::get('/contact', [PageController::class, 'contact'])->name('frontend.contact');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::redirect('/dashboard', '/admin/dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {

@@ -162,7 +162,7 @@
                 <div class="card-body d-flex flex-column justify-content-center">
                     <h5 class="fw-semibold">Welcome back</h5>
                     <p class="text-muted mb-3">Use the admin menu to manage school profile content, news, teachers, facilities, and galleries.</p>
-                    <a href="#" class="btn btn-primary w-100">Go to Settings</a>
+                    <a href="{{ route('admin.settings.index') }}" class="btn btn-primary w-100">Go to Settings</a>
                 </div>
             </div>
         </div>
