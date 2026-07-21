@@ -7,6 +7,7 @@ use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PpdbInfoController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('posts', PostController::class)->except(['show']);
     Route::resource('albums', AlbumController::class)->except(['show']);
     Route::resource('galleries', GalleryController::class)->except(['show']);
+    Route::resource('ppdb_infos', PpdbInfoController::class)->except(['show']);
 });
 
 Route::middleware('auth')->group(function () {
