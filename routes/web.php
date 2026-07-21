@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FacilityController;
@@ -28,6 +29,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('facilities', FacilityController::class)->except(['show']);
     Route::resource('categories', CategoryController::class)->except(['show']);
     Route::resource('posts', PostController::class)->except(['show']);
+    Route::resource('albums', AlbumController::class)->except(['show']);
 });
 
 Route::middleware('auth')->group(function () {
