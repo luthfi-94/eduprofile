@@ -6,10 +6,11 @@ use App\Http\Requests\StoreGalleryRequest;
 use App\Http\Requests\UpdateGalleryRequest;
 use App\Models\Album;
 use App\Models\Gallery;
-use Illuminate\Support\Facades\Storage;
+use App\Traits\HandlesMediaUploads;
 
 class GalleryController extends Controller
 {
+    use HandlesMediaUploads;
     public function index()
     {
         $search = request('search');
@@ -39,7 +40,7 @@ class GalleryController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('galleries', 'public');
+            $data['image'] = $this->storeUploadedFile($request->file('image'), 'galleries');
         }
 
         Gallery::create($data);
@@ -59,10 +60,7 @@ class GalleryController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('image')) {
-            if ($gallery->image) {
-                Storage::disk('public')->delete($gallery->image);
-            }
-            $data['image'] = $request->file('image')->store('galleries', 'public');
+            $data['image'] = $this->replaceUploadedFile($request->file('image'), 'galleries', $gallery->image);
         }
 
         $gallery->update($data);
@@ -72,9 +70,7 @@ class GalleryController extends Controller
 
     public function destroy(Gallery $gallery)
     {
-        if ($gallery->image) {
-            Storage::disk('public')->delete($gallery->image);
-        }
+        $this->deleteStoredFile($gallery->image);
 
         $gallery->delete();
 

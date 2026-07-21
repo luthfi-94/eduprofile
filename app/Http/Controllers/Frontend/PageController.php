@@ -14,83 +14,91 @@ use App\Models\Teacher;
 
 class PageController extends Controller
 {
+    protected function sharedData(): array
+    {
+        return [
+            'setting' => Setting::latest()->first(),
+            'profile' => Profile::latest()->first(),
+        ];
+    }
+
     public function schoolProfile()
     {
-        $setting = Setting::latest()->first();
-        $profile = Profile::latest()->first();
+        $data = $this->sharedData();
 
-        return view('frontend.school-profile', compact('setting', 'profile'));
+        return view('frontend.school-profile', $data);
     }
 
     public function principal()
     {
-        $setting = Setting::latest()->first();
-        $profile = Profile::latest()->first();
+        $data = $this->sharedData();
 
-        return view('frontend.principal', compact('setting', 'profile'));
+        return view('frontend.principal', $data);
     }
 
     public function teachers()
     {
-        $teachers = Teacher::latest()->get();
-        $setting = Setting::latest()->first();
+        $data = $this->sharedData();
+        $data['teachers'] = Teacher::latest()->get();
 
-        return view('frontend.teachers', compact('teachers', 'setting'));
+        return view('frontend.teachers', $data);
     }
 
     public function facilities()
     {
-        $facilities = Facility::latest()->get();
-        $setting = Setting::latest()->first();
+        $data = $this->sharedData();
+        $data['facilities'] = Facility::latest()->get();
 
-        return view('frontend.facilities', compact('facilities', 'setting'));
+        return view('frontend.facilities', $data);
     }
 
     public function news()
     {
-        $posts = Post::with('category')->where('status', 'published')->latest()->paginate(6);
-        $setting = Setting::latest()->first();
+        $data = $this->sharedData();
+        $data['posts'] = Post::with('category')->where('status', 'published')->latest()->paginate(6);
 
-        return view('frontend.news', compact('posts', 'setting'));
+        return view('frontend.news', $data);
     }
 
     public function showNews(Post $post)
     {
+        $data = $this->sharedData();
         $post->load('category');
-        $setting = Setting::latest()->first();
+        $data['post'] = $post;
 
-        return view('frontend.news-show', compact('post', 'setting'));
+        return view('frontend.news-show', $data);
     }
 
     public function gallery()
     {
-        $albums = Album::latest()->get();
-        $setting = Setting::latest()->first();
+        $data = $this->sharedData();
+        $data['albums'] = Album::latest()->get();
 
-        return view('frontend.gallery', compact('albums', 'setting'));
+        return view('frontend.gallery', $data);
     }
 
     public function showGallery(Album $album)
     {
+        $data = $this->sharedData();
         $album->load('galleries');
-        $setting = Setting::latest()->first();
+        $data['album'] = $album;
 
-        return view('frontend.gallery-show', compact('album', 'setting'));
+        return view('frontend.gallery-show', $data);
     }
 
     public function ppdb()
     {
-        $ppdbInfo = PpdbInfo::latest()->first();
-        $setting = Setting::latest()->first();
+        $data = $this->sharedData();
+        $data['ppdbInfo'] = PpdbInfo::latest()->first();
 
-        return view('frontend.ppdb', compact('ppdbInfo', 'setting'));
+        return view('frontend.ppdb', $data);
     }
 
     public function contact()
     {
-        $contact = Contact::latest()->first();
-        $setting = Setting::latest()->first();
+        $data = $this->sharedData();
+        $data['contact'] = Contact::latest()->first();
 
-        return view('frontend.contact', compact('contact', 'setting'));
+        return view('frontend.contact', $data);
     }
 }

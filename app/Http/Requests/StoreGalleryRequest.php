@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class StoreGalleryRequest extends FormRequest
+class StoreGalleryRequest extends AdminFormRequest
 {
     public function authorize(): bool
     {
@@ -15,7 +13,7 @@ class StoreGalleryRequest extends FormRequest
     {
         return [
             'album_id' => ['required', 'exists:albums,id'],
-            'title' => ['required', 'string', 'max:150'],
+            'title' => ['required', 'string', 'max:150', 'unique:galleries,title'],
             'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ];
     }

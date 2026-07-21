@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
 use App\Models\Setting;
-use Illuminate\Support\Facades\Storage;
+use App\Traits\HandlesMediaUploads;
 
 class SettingController extends Controller
 {
+    use HandlesMediaUploads;
     public function index()
     {
         $setting = Setting::first();
@@ -46,13 +47,8 @@ class SettingController extends Controller
 
     public function destroy(Setting $setting)
     {
-        if ($setting->logo) {
-            Storage::disk('public')->delete($setting->logo);
-        }
-
-        if ($setting->favicon) {
-            Storage::disk('public')->delete($setting->favicon);
-        }
+        $this->deleteStoredFile($setting->logo);
+        $this->deleteStoredFile($setting->favicon);
 
         $setting->delete();
 
@@ -65,11 +61,7 @@ class SettingController extends Controller
 
         foreach (['logo', 'favicon'] as $field) {
             if ($request->hasFile($field)) {
-                if ($setting?->$field) {
-                    Storage::disk('public')->delete($setting->$field);
-                }
-
-                $data[$field] = $request->file($field)->store('settings', 'public');
+                $data[$field] = $this->replaceUploadedFile($request->file($field), 'settings', $setting?->$field);
             }
         }
 

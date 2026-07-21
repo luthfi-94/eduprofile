@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class UpdateAlbumRequest extends FormRequest
+class UpdateAlbumRequest extends AdminFormRequest
 {
     public function authorize(): bool
     {
@@ -14,8 +12,8 @@ class UpdateAlbumRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:150'],
-            'description' => ['nullable', 'string'],
+            'title' => ['required', 'string', 'max:150', 'unique:albums,title,' . $this->route('album')->id],
+            'description' => ['nullable', 'string', 'max:1000'],
             'cover' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ];
     }

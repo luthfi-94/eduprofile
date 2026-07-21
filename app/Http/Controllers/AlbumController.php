@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAlbumRequest;
 use App\Http\Requests\UpdateAlbumRequest;
 use App\Models\Album;
-use Illuminate\Support\Facades\Storage;
+use App\Traits\HandlesMediaUploads;
 
 class AlbumController extends Controller
 {
+    use HandlesMediaUploads;
     public function index()
     {
         $albums = Album::latest()->paginate(9);
@@ -26,7 +27,7 @@ class AlbumController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('cover')) {
-            $data['cover'] = $request->file('cover')->store('albums', 'public');
+            $data['cover'] = $this->storeUploadedFile($request->file('cover'), 'albums');
         }
 
         Album::create($data);
@@ -44,10 +45,7 @@ class AlbumController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('cover')) {
-            if ($album->cover) {
-                Storage::disk('public')->delete($album->cover);
-            }
-            $data['cover'] = $request->file('cover')->store('albums', 'public');
+            $data['cover'] = $this->replaceUploadedFile($request->file('cover'), 'albums', $album->cover);
         }
 
         $album->update($data);
@@ -57,9 +55,7 @@ class AlbumController extends Controller
 
     public function destroy(Album $album)
     {
-        if ($album->cover) {
-            Storage::disk('public')->delete($album->cover);
-        }
+        $this->deleteStoredFile($album->cover);
 
         $album->delete();
 

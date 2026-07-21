@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTeacherRequest;
 use App\Http\Requests\UpdateTeacherRequest;
 use App\Models\Teacher;
-use Illuminate\Support\Facades\Storage;
+use App\Traits\HandlesMediaUploads;
 
 class TeacherController extends Controller
 {
+    use HandlesMediaUploads;
     public function index()
     {
         $search = request('search');
@@ -34,7 +35,7 @@ class TeacherController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('photo')) {
-            $data['photo'] = $request->file('photo')->store('teachers', 'public');
+            $data['photo'] = $this->storeUploadedFile($request->file('photo'), 'teachers');
         }
 
         Teacher::create($data);
@@ -52,10 +53,7 @@ class TeacherController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('photo')) {
-            if ($teacher->photo) {
-                Storage::disk('public')->delete($teacher->photo);
-            }
-            $data['photo'] = $request->file('photo')->store('teachers', 'public');
+            $data['photo'] = $this->replaceUploadedFile($request->file('photo'), 'teachers', $teacher->photo);
         }
 
         $teacher->update($data);
@@ -65,9 +63,7 @@ class TeacherController extends Controller
 
     public function destroy(Teacher $teacher)
     {
-        if ($teacher->photo) {
-            Storage::disk('public')->delete($teacher->photo);
-        }
+        $this->deleteStoredFile($teacher->photo);
 
         $teacher->delete();
 
