@@ -1,8 +1,8 @@
 <x-frontend-layout>
     <section class="hero-section py-5 text-white">
         <div class="container py-5">
-            <h1 class="display-5 fw-bold mb-3">Gallery</h1>
-            <p class="lead mb-0">Browse our school moments and memorable events.</p>
+            <h1 class="display-5 fw-bold mb-3">Galeri</h1>
+            <p class="lead mb-0">Jelajahi momen-momen sekolah kami dan acara-acara yang berkesan.</p>
         </div>
     </section>
 

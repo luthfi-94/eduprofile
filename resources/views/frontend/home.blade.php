@@ -101,60 +101,22 @@
         </div>
     </section> --}}
 
-    {{-- <section id="facilities" class="py-5 bg-white">
-        <div class="container">
-            <h2 class="fw-bold mb-4">Fasilitas</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <i class="bi bi-mortarboard-fill fs-3 text-primary mb-3"></i>
-                            <h5 class="fw-semibold">Ruang Kelas Modern</h5>
-                            <p class="text-muted">Ruang yang nyaman dan inspiratif untuk pembelajaran yang fokus.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <i class="bi bi-laptop-fill fs-3 text-primary mb-3"></i>
-                            <h5 class="fw-semibold">Laboratorium Teknologi</h5>
-                            <p class="text-muted">Kesempatan pembelajaran digital langsung bagi siswa.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <i class="bi bi-tree-fill fs-3 text-primary mb-3"></i>
-                            <h5 class="fw-semibold">Kampus Hijau</h5>
-                            <p class="text-muted">Lingkungan yang sehat yang mendukung kesejahteraan dan kreativitas.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
     {{-- Fasilitas --}}
     <section id="facilities" class="py-5 bg-white">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="fw-bold mb-0">Fasilitas</h2>
-
-                <a href="{{ route('frontend.facilities') }}" class="btn btn-outline-primary">
+                <a href="{{ route('frontend.facilities') }}" class="btn btn-outline-primary btn-lg">
                     Lihat Semua
                 </a>
             </div>
 
             <div class="row g-4">
-
                 @forelse($facilities as $facility)
-
                     <div class="col-md-4">
                         <div class="card h-100 border-0 shadow">
-
-                            @if($facility->photo)
+                            <div class="card-body p-4">
+                                @if($facility->photo)
                                 <img src="{{ asset('storage/' . $facility->photo) }}"
                                     class="card-img-top"
                                     alt="{{ $facility->title }}"
@@ -165,24 +127,15 @@
                                     alt="No Image"
                                     style="height:220px; object-fit:cover;">
                             @endif
-
-                            <div class="card-body d-flex flex-column">
-
-                                <h5 class="fw-bold">
-                                    {{ $facility->title }}
-                                </h5>
-
-                                <h5 class="fw-semibold mt-3">
-                                    {{ Str::limit(strip_tags($facility->description), 100) }}
-                                </h5>
-
-                                {{-- <a href="{{ route('frontend.facilities') }}"
-                                    class="btn btn-primary mt-auto">
-                                    <i class="bi bi-eye"></i> Lihat Detail
-                                </a> --}}
-
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="fw-bold">
+                                        {{ $facility->title }}
+                                    </h5>
+                                    <h5 class="fw-semibold mt-3">
+                                        {{ Str::limit(strip_tags($facility->description), 100) }}
+                                    </h5>
+                                </div>
                             </div>
-
                         </div>
                     </div>
 
@@ -203,9 +156,42 @@
     {{-- Gallery --}}
     <section id="gallery" class="py-5 bg-primary text-white">
         <div class="container">
-            <h2 class="fw-bold mb-4">Gallery Preview</h2>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold mb-0">Gallery Preview</h2>
+                <a href="{{ route('frontend.gallery') }}" class="btn btn-outline-light btn-lg">
+                    Lihat Semua
+                </a>
+            </div>
+            
             <div class="row g-4">
-                <div class="col-md-4">
+                @forelse ($albums as $album)
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body p-4">
+                                @if ($album->cover)
+                                    <img src="{{ asset('storage/' . $album->cover) }}" alt="{{ $album->title }}" class="img-fluid rounded mb-3" style="height: 180px; width: 100%; object-fit: cover;">
+                                @else
+                                    <div class="bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 180px;">
+                                        <i class="bi bi-images fs-1 text-muted"></i>
+                                    </div>
+                                @endif
+                                    <div class="card-body d-flex flex-column">
+                                        {{-- <h5 class="fw-bold">
+                                            {{ $album->title }}
+                                        </h5> --}}
+                                        <h5 class="fw-semibold mt-3">
+                                            {{ Str::limit(strip_tags($album->description), 100) }}
+                                        </h5>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-12">
+                        <div class="alert alert-light border">Albums will appear here once gallery content is added.</div>
+                    </div>
+                @endforelse
+                {{-- <div class="col-md-4">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 180px;">
@@ -234,7 +220,7 @@
                             <h5 class="fw-semibold mt-3">School Events</h5>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
