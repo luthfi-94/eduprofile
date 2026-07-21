@@ -52,6 +52,10 @@
                         <i class="bi bi-tags"></i>
                         <span>Categories</span>
                     </a>
+                    <a href="{{ route('admin.posts.index') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1 {{ request()->routeIs('admin.posts.*') ? 'bg-white bg-opacity-25' : '' }}">
+                        <i class="bi bi-newspaper"></i>
+                        <span>Posts</span>
+                    </a>
                     <a href="#" class="d-flex align-items-center gap-2 text-white text-decoration-none px-3 py-2 rounded mb-1">
                         <i class="bi bi-people"></i>
                         <span>Teachers</span>
