@@ -1,8 +1,8 @@
 :root {
-    --bs-primary: #0d6efd;
-    --bs-primary-rgb: 13, 110, 253;
+    --bs-primary: #2563eb;
+    --bs-primary-rgb: 37, 99, 235;
     --bs-secondary: #ffffff;
-    --bs-accent: #ffc107;
+    --bs-accent: #f59e0b;
 }
 
 body {
@@ -31,4 +31,9 @@ body {
 
 .bg-accent {
     background-color: var(--bs-accent) !important;
+}
+
+.py-lg-6 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
