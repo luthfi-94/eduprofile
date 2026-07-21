@@ -5,16 +5,16 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="fw-bold mb-1">PPDB Information</h2>
-            <p class="text-muted mb-0">Manage admission information and registration schedule.</p>
+            <h2 class="fw-bold mb-1">Informasi PPDB</h2>
+            <p class="text-muted mb-0">Kelola informasi penerimaan dan jadwal pendaftaran.</p>
         </div>
         <a href="{{ route('admin.ppdb_infos.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-circle me-2"></i>New Entry
+            <i class="bi bi-plus-circle me-2"></i>Tambah Informasi
         </a>
     </div>
 
     @if($ppdbInfos->isEmpty())
-        <div class="alert alert-info">No PPDB information found.</div>
+        <div class="alert alert-info">Tidak ada informasi PPDB ditemukan.</div>
     @else
         <div class="row g-4">
             @foreach($ppdbInfos as $ppdbInfo)
@@ -34,10 +34,10 @@
                         </div>
                         <div class="card-footer bg-white border-0 d-flex justify-content-between">
                             <a href="{{ route('admin.ppdb_infos.edit', $ppdbInfo) }}" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <form action="{{ route('admin.ppdb_infos.destroy', $ppdbInfo) }}" method="POST" onsubmit="return confirm('Delete this PPDB entry?')">
+                            <form action="{{ route('admin.ppdb_infos.destroy', $ppdbInfo) }}" method="POST" onsubmit="return confirm('Hapus informasi PPDB ini?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Hapus</button>
                             </form>
                         </div>
                     </div>

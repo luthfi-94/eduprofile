@@ -5,8 +5,8 @@
 
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4">
         <div>
-            <h4 class="fw-semibold mb-1">Posts</h4>
-            <p class="text-muted mb-0">Manage news posts with category filters, search, and status.</p>
+            <h4 class="fw-semibold mb-1">Berita</h4>
+            <p class="text-muted mb-0">Kelola berita dengan filter kategori, pencarian, dan status.</p>
         </div>
         <div class="d-flex gap-2 flex-wrap align-items-center">
             <form method="GET" action="{{ route('admin.posts.index') }}" class="d-flex gap-2 flex-wrap">
@@ -19,14 +19,14 @@
                 <input type="text" name="search" value="{{ $search ?? '' }}" class="form-control" placeholder="Search posts">
                 <button type="submit" class="btn btn-outline-primary">Search</button>
             </form>
-            <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Add Post</a>
+            <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Tambah Berita</a>
         </div>
     </div>
 
     <div class="card border-0 shadow-sm">
         <div class="card-body">
             @if ($posts->isEmpty())
-                <div class="text-center py-5 text-muted">No posts found.</div>
+                <div class="text-center py-5 text-muted">Tidak ada berita ditemukan.</div>
             @else
                 <div class="table-responsive">
                     <table class="table align-middle">
@@ -55,7 +55,7 @@
                                         <form action="{{ route('admin.posts.destroy', $post) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this post?')">Delete</button>
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Hapus berita ini?')">Hapus</button>
                                         </form>
                                     </td>
                                 </tr>

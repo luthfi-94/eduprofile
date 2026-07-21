@@ -5,16 +5,16 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="fw-bold mb-1">Albums</h2>
+            <h2 class="fw-bold mb-1">Album</h2>
             <p class="text-muted mb-0">Manage school photo albums.</p>
         </div>
         <a href="{{ route('admin.albums.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-circle me-2"></i>New Album
+            <i class="bi bi-plus-circle me-2"></i>Album Baru
         </a>
     </div>
 
     @if($albums->isEmpty())
-        <div class="alert alert-info">No albums found.</div>
+        <div class="alert alert-info">Tidak ada album ditemukan.</div>
     @else
         <div class="row g-4">
             @foreach($albums as $album)
@@ -33,7 +33,7 @@
                         </div>
                         <div class="card-footer bg-white border-0 d-flex justify-content-between">
                             <a href="{{ route('admin.albums.edit', $album) }}" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <form action="{{ route('admin.albums.destroy', $album) }}" method="POST" onsubmit="return confirm('Delete this album?')">
+                            <form action="{{ route('admin.albums.destroy', $album) }}" method="POST" onsubmit="return confirm('Hapus album ini?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>

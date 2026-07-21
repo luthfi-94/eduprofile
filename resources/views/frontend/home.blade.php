@@ -4,7 +4,7 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-7">
                     <p class="text-uppercase small fw-semibold mb-3 text-light">Selamat Datang di</p>
-                    <h1 class="display-4 fw-bold mb-3">UPTD SDN 7 WAY LIMA</h1>
+                    <h1 class="display-4 fw-bold mb-3 ">UPTD SDN 7 WAY LIMA</h1>
                     <p class="lead mb-4">Lingkungan belajar yang terpercaya yang mendukung keunggulan akademik, karakter, dan keterampilan siap masa depan.</p>
                     <div class="d-flex flex-wrap gap-3">
                         {{-- <a href="#profile" class="btn btn-light btn-lg">Discover More</a> --}}

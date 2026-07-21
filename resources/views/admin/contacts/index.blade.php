@@ -5,16 +5,16 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="fw-bold mb-1">Contacts</h2>
-            <p class="text-muted mb-0">Manage official contact details for the school.</p>
+            <h2 class="fw-bold mb-1">Kontak</h2>
+            <p class="text-muted mb-0">Kelola informasi kontak resmi untuk sekolah.</p>
         </div>
         <a href="{{ route('admin.contacts.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-circle me-2"></i>New Contact
+            <i class="bi bi-plus-circle me-2"></i>Kontak Baru
         </a>
     </div>
 
     @if($contacts->isEmpty())
-        <div class="alert alert-info">No contact information found.</div>
+        <div class="alert alert-info">Tidak ada informasi kontak ditemukan.</div>
     @else
         <div class="row g-4">
             @foreach($contacts as $contact)
@@ -30,10 +30,10 @@
                         </div>
                         <div class="card-footer bg-white border-0 d-flex justify-content-between">
                             <a href="{{ route('admin.contacts.edit', $contact) }}" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <form action="{{ route('admin.contacts.destroy', $contact) }}" method="POST" onsubmit="return confirm('Delete this contact entry?')">
+                            <form action="{{ route('admin.contacts.destroy', $contact) }}" method="POST" onsubmit="return confirm('Hapus kontak ini?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Hapus</button>
                             </form>
                         </div>
                     </div>

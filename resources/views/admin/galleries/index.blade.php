@@ -5,21 +5,21 @@
 
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4">
         <div>
-            <h4 class="fw-semibold mb-1">Galleries</h4>
-            <p class="text-muted mb-0">Manage gallery items for each album.</p>
+            <h4 class="fw-semibold mb-1">Galeri</h4>
+            <p class="text-muted mb-0">Kelola item galeri untuk setiap album.</p>
         </div>
         <div class="d-flex gap-2 align-items-center">
             <form method="GET" action="{{ route('admin.galleries.index') }}" class="d-flex gap-2">
                 <input type="text" name="search" value="{{ $search ?? '' }}" class="form-control" placeholder="Search galleries">
                 <button type="submit" class="btn btn-outline-primary">Search</button>
             </form>
-            <a href="{{ route('admin.galleries.create') }}" class="btn btn-primary">Add Gallery</a>
+            <a href="{{ route('admin.galleries.create') }}" class="btn btn-primary">Tambah Galeri</a>
         </div>
     </div>
 
     @if ($galleries->isEmpty())
         <div class="card border-0 shadow-sm">
-            <div class="card-body text-center py-5 text-muted">No gallery items found.</div>
+            <div class="card-body text-center py-5 text-muted">Tidak ada item galeri ditemukan.</div>
         </div>
     @else
         <div class="row g-4">
@@ -39,7 +39,7 @@
                                 <form action="{{ route('admin.galleries.destroy', $gallery) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this gallery item?')">Delete</button>
+                                    <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Hapus item galeri ini?')">Hapus</button>
                                 </form>
                             </div>
                         </div>

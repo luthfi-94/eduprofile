@@ -45,7 +45,7 @@
                             <div class="mb-3">
                                 <div class="text-muted small">Logo</div>
                                 @if ($setting->logo)
-                                    <img src="{{ Storage::disk('public')->url($setting->logo) }}" alt="Logo" class="img-fluid mt-2 rounded" style="max-height: 100px;">
+                                    <img src="{{ asset('storage/' . $setting->logo) }}" alt="Logo" class="img-fluid mt-2 rounded" style="max-height: 100px;">
                                 @else
                                     <div class="text-muted mt-2">No logo uploaded</div>
                                 @endif
@@ -53,7 +53,7 @@
                             <div class="mb-3">
                                 <div class="text-muted small">Favicon</div>
                                 @if ($setting->favicon)
-                                    <img src="{{ Storage::disk('public')->url($setting->favicon) }}" alt="Favicon" class="img-fluid mt-2 rounded" style="max-height: 48px;">
+                                    <img src="{{ asset('storage/' . $setting->favicon) }}" alt="Favicon" class="img-fluid mt-2 rounded" style="max-height: 48px;">
                                 @else
                                     <div class="text-muted mt-2">No favicon uploaded</div>
                                 @endif
