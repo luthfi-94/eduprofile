@@ -27,7 +27,8 @@
                 <div class="col-12 col-md-6 col-xl-4">
                     <div class="card border-0 shadow-sm h-100">
                         @if ($facility->photo)
-                            <img src="{{ Storage::disk('public')->url($facility->photo) }}" class="card-img-top" alt="{{ $facility->name }}" style="height: 220px; object-fit: cover;">
+                            <img src="{{ asset('storage/' . $facility->photo) }}" 
+                            class="card-img-top" alt="{{ $facility->name }}" style="height: 220px; object-fit: cover;">
                         @else
                             <div class="card-img-top bg-light d-flex align-items-center justify-content-center text-muted" style="height: 220px;">No image</div>
                         @endif

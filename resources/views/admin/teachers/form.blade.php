@@ -23,41 +23,41 @@
                             <input type="text" class="form-control" id="nip" name="nip" value="{{ old('nip', $teacher->nip ?? '') }}" required>
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="name" class="form-label">Nama</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $teacher->name ?? '') }}" required>
                         </div>
                         <div class="mb-3">
-                            <label for="gender" class="form-label">Gender</label>
+                            <label for="gender" class="form-label">Jenis Kelamin</label>
                             <select class="form-select" id="gender" name="gender" required>
-                                <option value="">Select gender</option>
-                                <option value="Male" {{ old('gender', $teacher->gender ?? '') == 'Male' ? 'selected' : '' }}>Male</option>
-                                <option value="Female" {{ old('gender', $teacher->gender ?? '') == 'Female' ? 'selected' : '' }}>Female</option>
+                                <option value="">Pilih jenis kelamin</option>
+                                <option value="Male" {{ old('gender', $teacher->gender ?? '') == 'Male' ? 'selected' : '' }}>Laki-laki</option>
+                                <option value="Female" {{ old('gender', $teacher->gender ?? '') == 'Female' ? 'selected' : '' }}>Perempuan</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="birth_place" class="form-label">Birth Place</label>
+                            <label for="birth_place" class="form-label">Tempat Lahir</label>
                             <input type="text" class="form-control" id="birth_place" name="birth_place" value="{{ old('birth_place', $teacher->birth_place ?? '') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="birth_date" class="form-label">Birth Date</label>
+                            <label for="birth_date" class="form-label">Tanggal Lahir</label>
                             <input type="date" class="form-control" id="birth_date" name="birth_date" value="{{ old('birth_date', $teacher->birth_date ?? '') }}">
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
                         <div class="mb-3">
-                            <label for="education" class="form-label">Education</label>
+                            <label for="education" class="form-label">Pendidikan</label>
                             <input type="text" class="form-control" id="education" name="education" value="{{ old('education', $teacher->education ?? '') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="position" class="form-label">Position</label>
+                            <label for="position" class="form-label">Jabatan</label>
                             <input type="text" class="form-control" id="position" name="position" value="{{ old('position', $teacher->position ?? '') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="subject" class="form-label">Subject</label>
+                            <label for="subject" class="form-label">Mata Pelajaran</label>
                             <input type="text" class="form-control" id="subject" name="subject" value="{{ old('subject', $teacher->subject ?? '') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="photo" class="form-label">Photo</label>
+                            <label for="photo" class="form-label">Foto</label>
                             <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
                             @if (isset($teacher) && $teacher->photo)
                                 <div class="form-text">Current file: {{ basename($teacher->photo) }}</div>
@@ -67,8 +67,8 @@
                 </div>
 
                 <div class="d-flex gap-2">
-                    <button type="submit" class="btn btn-primary">Save Teacher</button>
-                    <a href="{{ route('admin.teachers.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Simpan Guru</button>
+                    <a href="{{ route('admin.teachers.index') }}" class="btn btn-outline-secondary">Batal</a>
                 </div>
             </form>
         </div>
