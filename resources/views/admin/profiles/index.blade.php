@@ -1,19 +1,19 @@
 <x-admin-layout>
     <x-slot name="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">School Profile</li>
+        <li class="breadcrumb-item active" aria-current="page">Profil Sekolah</li>
     </x-slot>
 
     <div class="card border-0 shadow-sm">
         <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
             <div>
-                <h4 class="fw-semibold mb-1">School Profile</h4>
-                <p class="text-muted mb-0">Manage the school history, vision, mission, and goals.</p>
+                <h4 class="fw-semibold mb-1">Profil Sekolah</h4>
+                <p class="text-muted mb-0">Kelola sejarah sekolah, visi, misi, dan tujuan.</p>
             </div>
-            <a href="{{ route('admin.profiles.create') }}" class="btn btn-primary">Create Profile</a>
+            <a href="{{ route('admin.profiles.create') }}" class="btn btn-primary">Buat Profil</a>
         </div>
         <div class="card-body">
             @if ($profiles->isEmpty())
-                <div class="text-center py-5 text-muted">No school profile entries yet.</div>
+                <div class="text-center py-5 text-muted">Belum ada entri profil sekolah.</div>
             @else
                 <div class="table-responsive">
                     <table class="table align-middle">
@@ -38,7 +38,7 @@
                                         <form action="{{ route('admin.profiles.destroy', $profile) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this profile entry?')">Delete</button>
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Hapus entri profil ini?')">Hapus</button>
                                         </form>
                                     </td>
                                 </tr>

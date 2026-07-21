@@ -13,13 +13,13 @@
 
     <section class="py-5 bg-white">
         <div class="container">
-            <div class="row g-5">
+            <div class="row g-4 mt-2">
                 {{-- <div class="col-lg-7">
                     <h2 class="fw-bold mb-4">Sejarah Sekolah</h2>
                     <p class="text-muted">{{ $profile?->history ?? 'Sejarah sekolah akan ditambahkan di sini setelah konten profil diterbitkan.' }}</p>
                 </div> --}}
-                <div class="col-lg-5">
-                    <div class="card border-0 shadow-sm rounded-4">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 bg-primary text-white">
                         <div class="card-body p-4">
                             <h5 class="fw-bold mb-3">Identitas Sekolah</h5>
                             <p class="mb-2"><strong>Nama Sekolah:</strong> {{ $setting?->school_name ?? config('app.name') }}</p>
@@ -35,7 +35,9 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h5 class="fw-bold mb-3">Visi</h5>
-                            <p class="text-muted mb-0">{{ $profile?->vision ?? 'Visi akan ditambahkan di sini.' }}</p>
+                                <div
+                                    class="text-muted mb-0">{!! $profile?->vision ?? 'Visi akan ditambahkan di sini.' !!}
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -43,7 +45,9 @@
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h5 class="fw-bold mb-3">Misi</h5>
-                            <p class="text-muted mb-0">{{ $profile?->mission ?? 'Misi akan ditambahkan di sini.' }}</p>
+                                <div
+                                    class="text-muted mb-0">{!! $profile?->mission ?? 'Misi akan ditambahkan di sini.' !!}
+                                </div>
                         </div>
                     </div>
                 </div>
