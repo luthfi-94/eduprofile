@@ -15,9 +15,10 @@ use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('frontend.')->group(function () {
-    Route::get('/', function () {
-        return view('frontend.home');
-    })->name('home');
+    // Route::get('/', function () {
+    //     return view('frontend.home');
+    // })->name('home');
+    Route::get('/', [PageController::class, 'home'])->name('home');
 
     Route::get('/school-profile', [PageController::class, 'schoolProfile'])->name('school-profile');
     Route::get('/principal', [PageController::class, 'principal'])->name('principal');

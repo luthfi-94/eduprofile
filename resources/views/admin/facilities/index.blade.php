@@ -1,25 +1,25 @@
 <x-admin-layout>
     <x-slot name="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">Facilities</li>
+        <li class="breadcrumb-item active" aria-current="page">Fasilitas</li>
     </x-slot>
 
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4">
         <div>
-            <h4 class="fw-semibold mb-1">Facilities</h4>
-            <p class="text-muted mb-0">Manage school facilities in a card-based layout.</p>
+            <h4 class="fw-semibold mb-1">Fasilitas</h4>
+            <p class="text-muted mb-0">Kelola fasilitas sekolah dalam tata letak berbasis kartu.</p>
         </div>
         <div class="d-flex gap-2 align-items-center">
             <form method="GET" action="{{ route('admin.facilities.index') }}" class="d-flex gap-2">
                 <input type="text" name="search" value="{{ $search ?? '' }}" class="form-control" placeholder="Search facilities">
                 <button type="submit" class="btn btn-outline-primary">Search</button>
             </form>
-            <a href="{{ route('admin.facilities.create') }}" class="btn btn-primary">Add Facility</a>
+            <a href="{{ route('admin.facilities.create') }}" class="btn btn-primary">Tambah Fasilitas</a>
         </div>
     </div>
 
     @if ($facilities->isEmpty())
         <div class="card border-0 shadow-sm">
-            <div class="card-body text-center py-5 text-muted">No facilities found.</div>
+            <div class="card-body text-center py-5 text-muted">Tidak ada fasilitas ditemukan.</div>
         </div>
     @else
         <div class="row g-4">
@@ -35,11 +35,11 @@
                             <h5 class="card-title fw-semibold">{{ $facility->name }}</h5>
                             <p class="card-text text-muted flex-grow-1">{{ Str::limit($facility->description ?? '', 140) }}</p>
                             <div class="d-flex gap-2">
-                                <a href="{{ route('admin.facilities.edit', $facility) }}" class="btn btn-outline-primary btn-sm">Edit</a>
+                                <a href="{{ route('admin.facilities.edit', $facility) }}" class="btn btn-outline-primary btn-sm">Ubah</a>
                                 <form action="{{ route('admin.facilities.destroy', $facility) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this facility?')">Delete</button>
+                                    <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Hapus fasilitas ini?')">Hapus</button>
                                 </form>
                             </div>
                         </div>

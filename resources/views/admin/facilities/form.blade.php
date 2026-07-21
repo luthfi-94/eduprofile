@@ -1,13 +1,13 @@
 <x-admin-layout>
     <x-slot name="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route('admin.facilities.index') }}" class="text-decoration-none">Facilities</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('admin.facilities.index') }}" class="text-decoration-none">Fasilitas</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ isset($facility) ? 'Edit' : 'Create' }}</li>
     </x-slot>
 
     <div class="card border-0 shadow-sm">
         <div class="card-header bg-white border-0">
-            <h4 class="fw-semibold mb-1">{{ isset($facility) ? 'Edit' : 'Create' }} Facility</h4>
-            <p class="text-muted mb-0">Add a facility image and description.</p>
+            <h4 class="fw-semibold mb-1">{{ isset($facility) ? 'Edit' : 'Create' }} Fasilitas</h4>
+            <p class="text-muted mb-0">Tambahkan gambar dan deskripsi fasilitas.</p>
         </div>
         <div class="card-body">
             <form action="{{ isset($facility) ? route('admin.facilities.update', $facility) : route('admin.facilities.store') }}" method="POST" enctype="multipart/form-data">
@@ -17,12 +17,12 @@
                 @endif
 
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
+                    <label for="name" class="form-label">Nama</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $facility->name ?? '') }}" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="photo" class="form-label">Photo</label>
+                    <label for="photo" class="form-label">Foto</label>
                     <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
                     @if (isset($facility) && $facility->photo)
                         <div class="form-text">Current file: {{ basename($facility->photo) }}</div>
@@ -30,13 +30,13 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
+                    <label for="description" class="form-label">Deskripsi</label>
                     <textarea class="form-control" id="description" name="description" rows="5">{{ old('description', $facility->description ?? '') }}</textarea>
                 </div>
 
                 <div class="d-flex gap-2">
-                    <button type="submit" class="btn btn-primary">Save Facility</button>
-                    <a href="{{ route('admin.facilities.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Simpan Fasilitas</button>
+                    <a href="{{ route('admin.facilities.index') }}" class="btn btn-outline-secondary">Batal</a>
                 </div>
             </form>
         </div>

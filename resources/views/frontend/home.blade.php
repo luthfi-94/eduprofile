@@ -3,12 +3,12 @@
         <div class="container py-5">
             <div class="row align-items-center g-5">
                 <div class="col-lg-7">
-                    <p class="text-uppercase small fw-semibold mb-3 text-light-emphasis">Welcome to</p>
-                    <h1 class="display-4 fw-bold mb-3">EduProfile School</h1>
-                    <p class="lead mb-4">A trusted learning environment that nurtures academic excellence, character, and future-ready skills.</p>
+                    <p class="text-uppercase small fw-semibold mb-3 text-light">Selamat Datang di</p>
+                    <h1 class="display-4 fw-bold mb-3">UPTD SDN 7 WAY LIMA</h1>
+                    <p class="lead mb-4">Lingkungan belajar yang terpercaya yang mendukung keunggulan akademik, karakter, dan keterampilan siap masa depan.</p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="#profile" class="btn btn-light btn-lg">Discover More</a>
-                        <a href="#ppdb" class="btn btn-outline-light btn-lg">PPDB Registration</a>
+                        {{-- <a href="#profile" class="btn btn-light btn-lg">Discover More</a> --}}
+                        <a href="{{ route('frontend.ppdb') }}" class="btn btn-outline-light btn-lg">Registrasi PPDB</a>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-lg-7">
                     <h2 class="fw-bold mb-3">School Profile</h2>
-                    <p class="text-muted mb-4">EduProfile School is dedicated to delivering quality education through innovation, disciplined learning, and a strong sense of community.</p>
+                    <p class="text-muted mb-4">UPTD SDN 7 WAY LIMA is dedicated to delivering quality education through innovation, disciplined learning, and a strong sense of community.</p>
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <div class="card border-0 shadow-sm h-100">
@@ -103,14 +103,14 @@
 
     <section id="facilities" class="py-5 bg-white">
         <div class="container">
-            <h2 class="fw-bold mb-4">Facilities</h2>
+            <h2 class="fw-bold mb-4">Fasilitas</h2>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
                             <i class="bi bi-mortarboard-fill fs-3 text-primary mb-3"></i>
-                            <h5 class="fw-semibold">Modern Classrooms</h5>
-                            <p class="text-muted">Comfortable and inspiring spaces for focused learning.</p>
+                            <h5 class="fw-semibold">Ruang Kelas Modern</h5>
+                            <p class="text-muted">Ruang yang nyaman dan inspiratif untuk pembelajaran yang fokus.</p>
                         </div>
                     </div>
                 </div>
@@ -118,8 +118,8 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
                             <i class="bi bi-laptop-fill fs-3 text-primary mb-3"></i>
-                            <h5 class="fw-semibold">Technology Lab</h5>
-                            <p class="text-muted">Hands-on digital learning opportunities for students.</p>
+                            <h5 class="fw-semibold">Laboratorium Teknologi</h5>
+                            <p class="text-muted">Kesempatan pembelajaran digital langsung bagi siswa.</p>
                         </div>
                     </div>
                 </div>
@@ -127,8 +127,8 @@
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body">
                             <i class="bi bi-tree-fill fs-3 text-primary mb-3"></i>
-                            <h5 class="fw-semibold">Green Campus</h5>
-                            <p class="text-muted">A healthy environment that supports well-being and creativity.</p>
+                            <h5 class="fw-semibold">Kampus Hijau</h5>
+                            <p class="text-muted">Lingkungan yang sehat yang mendukung kesejahteraan dan kreativitas.</p>
                         </div>
                     </div>
                 </div>

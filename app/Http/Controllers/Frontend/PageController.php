@@ -14,6 +14,23 @@ use App\Models\Teacher;
 
 class PageController extends Controller
 {
+    public function home()
+{
+    $data = $this->sharedData();
+
+    $data['teachers'] = Teacher::latest()->take(4)->get();
+    $data['facilities'] = Facility::latest()->take(3)->get();
+    $data['posts'] = Post::where('status', 'published')
+                        ->latest()
+                        ->take(3)
+                        ->get();
+    $data['albums'] = Album::latest()->take(6)->get();
+    $data['ppdbInfo'] = PpdbInfo::latest()->first();
+    $data['contact'] = Contact::latest()->first();
+
+    return view('frontend.home', $data);
+}
+
     protected function sharedData(): array
     {
         return [
