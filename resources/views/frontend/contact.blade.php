@@ -1,8 +1,8 @@
 <x-frontend-layout>
     <section class="hero-section py-5 text-white">
         <div class="container py-5">
-            <h1 class="display-5 fw-bold mb-3">Contact Us</h1>
-            <p class="lead mb-0">Reach out to our school for questions, visits, or admission inquiries.</p>
+            <h1 class="display-5 fw-bold mb-3">Hubungi Kami</h1>
+            <p class="lead mb-0">Hubungi sekolah kami untuk pertanyaan, kunjungan, atau informasi pendaftaran.</p>
         </div>
     </section>
 
@@ -28,8 +28,8 @@
                 <div class="col-lg-5">
                     <div class="card border-0 shadow-sm bg-light">
                         <div class="card-body p-4">
-                            <h5 class="fw-semibold mb-3">Need help?</h5>
-                            <p class="text-muted">We are happy to assist with questions about school life, facilities, or admission procedures.</p>
+                            <h5 class="fw-semibold mb-3">Butuh bantuan?</h5>
+                            <p class="text-muted">Kami dengan senang hati membantu pertanyaan tentang kehidupan sekolah, fasilitas, atau prosedur pendaftaran.</p>
                         </div>
                     </div>
                 </div>
