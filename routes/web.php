@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,6 +21,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     Route::resource('settings', SettingController::class)->except(['show']);
     Route::resource('profiles', AdminProfileController::class)->except(['show']);
+    Route::resource('teachers', TeacherController::class)->except(['show']);
 });
 
 Route::middleware('auth')->group(function () {
