@@ -326,3 +326,66 @@
 .navbar-nav .nav-link.active::after {
     width: 70%;
 }
+
+/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar{
+    position: fixed;
+    top:0;
+    left:0;
+    width:260px;
+    height:100vh;
+    overflow-y:auto;
+    transition:.3s;
+    z-index:1040;
+}
+
+/* Header */
+
+.admin-header{
+    left:260px;
+    right:0;
+    height:72px;
+    z-index:1030;
+}
+
+/* Main */
+
+#main-content{
+    margin-left:260px;
+}
+
+#main-content .container-fluid{
+    margin-top:72px;
+}
+
+/* Collapse */
+
+.sidebar.collapsed{
+    width:80px;
+}
+
+.sidebar.collapsed .fw-semibold,
+.sidebar.collapsed small,
+.sidebar.collapsed .nav-text,
+.sidebar.collapsed .text-uppercase{
+    display:none;
+}
+
+.sidebar.collapsed+.flex-grow-1{
+    margin-left:80px;
+}
+
+.sidebar.collapsed+.flex-grow-1 .admin-header{
+    left:80px;
+}
+
+/* Animasi */
+
+.sidebar,
+.admin-header,
+#main-content{
+    transition:.3s;
+}
