@@ -83,37 +83,21 @@
                     @forelse($latestPosts as $post)
                         <a href="{{ route('admin.posts.edit', $post) }}"
                             class="list-group-item px-0 py-3 d-flex justify-content-between">
-
                             <div>
-
                                 <div class="fw-semibold">
-
                                     {{ $post->title }}
-
                                 </div>
-
                                 <div class="text-muted small">
-
                                     {{ $post->created_at->diffForHumans() }}
-
                                 </div>
-
                             </div>
-
                             <span class="badge bg-success">
-
                                 {{ ucfirst($post->status) }}
-
                             </span>
-
                         </a>
-
                     @empty
-
                         <div class="text-center text-muted">
-
                             Belum ada berita.
-
                         </div>
                     @endforelse
                     {{-- <div class="list-group list-group-flush">
