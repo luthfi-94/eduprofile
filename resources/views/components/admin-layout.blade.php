@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'EduProfile') }} - Admin</title>
+    <title>{{ config('app.name', 'UPTD SDN 7 WAY LIMA') }} - Admin</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -21,8 +21,8 @@
                         <i class="bi bi-building fs-5"></i>
                     </div>
                     <div>
-                        <div class="fw-semibold">EduProfile</div>
-                        <small class="opacity-75">Admin Panel</small>
+                        <div class="fw-semibold">UPTD SDN 7</div>
+                        <small class="opacity-75">WAY LIMA</small>
                     </div>
                 </div>
 
@@ -114,7 +114,7 @@
 
             <footer class="bg-white border-top py-3 mt-auto">
                 <div class="container-fluid text-center text-muted small">
-                    © {{ date('Y') }} EduProfile. All rights reserved.
+                    © {{ date('Y') }} UPTD SDN 7 WAY LIMA. All rights reserved.
                 </div>
             </footer>
         </div>
@@ -122,7 +122,7 @@
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
         <div class="offcanvas-header bg-primary text-white">
-            <h5 class="offcanvas-title" id="sidebarOffcanvasLabel">EduProfile</h5>
+            <h5 class="offcanvas-title" id="sidebarOffcanvasLabel">UPTD SDN 7 WAY LIMA</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">

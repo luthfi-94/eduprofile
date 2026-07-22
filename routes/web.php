@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FacilityController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PostController;
@@ -37,9 +38,9 @@ Route::redirect('/dashboard', '/admin/dashboard')
     ->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
 
     Route::resource('settings', SettingController::class)->except(['show']);
     Route::resource('profiles', AdminProfileController::class)->except(['show']);

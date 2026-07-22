@@ -2,58 +2,287 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-:root {
-    --bs-primary: #2563eb;
-    --bs-primary-rgb: 37, 99, 235;
-    --bs-secondary: #ffffff;
-    --bs-accent: #f59e0b;
+/* /* =====================================================
+   EduProfile UI Utility
+   ===================================================== */
+
+/* Border Radius */
+.radius-sm {
+    border-radius: 8px;
 }
 
-body {
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
-    background-color: #f8f9fa;
-    color: #212529;
+.radius {
+    border-radius: 12px;
 }
 
-.btn-primary {
-    background-color: var(--bs-primary);
-    border-color: var(--bs-primary);
+.radius-lg {
+    border-radius: 20px;
 }
 
-.btn-outline-primary {
-    color: var(--bs-primary);
-    border-color: var(--bs-primary);
+.radius-xl {
+    border-radius: 30px;
 }
 
-.text-accent {
-    color: var(--bs-accent);
+/* Shadow */
+
+.shadow-xs {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.05);
 }
 
-.bg-primary {
-    background-color: var(--bs-primary) !important;
+.shadow-md {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.10);
 }
 
-.bg-accent {
-    background-color: var(--bs-accent) !important;
+.shadow-lg {
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
 }
 
-.py-lg-6 {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+/* =====================================================
+   Background Color
+   ===================================================== */
+
+.bg-primary-soft{
+    background:#E8F2FF;
 }
 
-.hero-section {
-    background: linear-gradient(135deg, var(--bs-primary) 0%, #1d4ed8 100%);
+.bg-success-soft{
+    background:#EAF8EF;
 }
 
-.admin-nav-link {
-    transition: background-color 0.2s ease, transform 0.2s ease;
+.bg-danger-soft{
+    background:#FDECEC;
 }
 
-.admin-nav-link:hover {
-    transform: translateX(2px);
+.bg-warning-soft{
+    background:#FFF8E5;
 }
 
-.card {
-    border-radius: 0.75rem;
+.bg-info-soft{
+    background:#EAF8FC;
+}
+
+.bg-purple-soft{
+    background:#F3E8FF;
+}
+
+.bg-indigo-soft{
+    background:#EEF2FF;
+}
+
+.bg-pink-soft{
+    background:#FDEBF4;
+}
+
+.bg-orange-soft{
+    background:#FFF1E6;
+}
+
+.bg-teal-soft{
+    background:#E6FFFB;
+}
+
+.bg-dark-soft{
+    background:#F5F5F5;
+}
+
+/* Gradient */
+
+.bg-gradient-primary{
+    background:linear-gradient(135deg,#0d6efd,#00d366);
+    color:#fff;
+}
+
+.bg-gradient-success{
+    background:linear-gradient(135deg,#198754,#38d996);
+    color:#fff;
+}
+
+.bg-gradient-danger{
+    background:linear-gradient(135deg,#dc3545,#ff6b6b);
+    color:#fff;
+}
+
+.bg-gradient-warning{
+    background:linear-gradient(135deg,#16c89e,#e468a4);
+    color:#212529;
+}
+
+.bg-gradient-info{
+    background:linear-gradient(135deg,#0dcaf0,#66d9ff);
+    color:#fff;
+}
+
+.bg-gradient-purple{
+    background:linear-gradient(135deg,#6f42c1,#9775fa);
+    color:#fff;
+}
+
+/* =====================================================
+   Text Color
+   ===================================================== */
+
+.text-purple{
+    color:#6f42c1;
+}
+
+.text-indigo{
+    color:#4f46e5;
+}
+
+.text-pink{
+    color:#d63384;
+}
+
+.text-orange{
+    color:#fd7e14;
+}
+
+.text-teal{
+    color:#20c997;
+}
+
+.text-dark-blue{
+    color:#1e3a8a;
+}
+
+.text-gray{
+    color:#6c757d;
+}
+
+/* =====================================================
+   Badge
+   ===================================================== */
+
+.badge-soft-primary{
+    background:#E8F2FF;
+    color:#0d6efd;
+}
+
+.badge-soft-success{
+    background:#EAF8EF;
+    color:#198754;
+}
+
+.badge-soft-danger{
+    background:#FDECEC;
+    color:#dc3545;
+}
+
+.badge-soft-warning{
+    background:#FFF8E5;
+    color:#856404;
+}
+
+.badge-soft-info{
+    background:#EAF8FC;
+    color:#0dcaf0;
+}
+
+/* =====================================================
+   Card
+   ===================================================== */
+
+.card-hover{
+    transition:.3s;
+}
+
+.card-hover:hover{
+    transform:translateY(-5px);
+    box-shadow:0 .8rem 2rem rgba(0,0,0,.15);
+}
+
+/* =====================================================
+   Button
+   ===================================================== */
+
+.btn-rounded{
+    border-radius:50px;
+}
+
+.btn-soft-primary{
+    background:#E8F2FF;
+    color:#0d6efd;
+}
+
+.btn-soft-primary:hover{
+    background:#0d6efd;
+    color:#fff;
+}
+
+.btn-soft-success{
+    background:#EAF8EF;
+    color:#198754;
+}
+
+.btn-soft-success:hover{
+    background:#198754;
+    color:#fff;
+}
+
+.btn-soft-danger{
+    background:#FDECEC;
+    color:#dc3545;
+}
+
+.btn-soft-danger:hover{
+    background:#dc3545;
+    color:#fff;
+}
+
+/* =====================================================
+   Table
+   ===================================================== */
+
+.table-hover tbody tr:hover{
+    background:#F8F9FA;
+}
+
+/* =====================================================
+   Image
+   ===================================================== */
+
+.img-cover{
+    object-fit:cover;
+}
+
+.img-rounded{
+    border-radius:15px;
+}
+
+/* =====================================================
+   Avatar
+   ===================================================== */
+
+.avatar-sm{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+}
+
+.avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+
+.avatar-lg{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+}
+
+/* =====================================================
+   Cursor
+   ===================================================== */
+
+.pointer{
+    cursor:pointer;
+}
+
+/* =====================================================
+   Transition
+   ===================================================== */
+
+.transition{
+    transition:.3s;
 }

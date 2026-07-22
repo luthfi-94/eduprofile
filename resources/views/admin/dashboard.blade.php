@@ -4,56 +4,64 @@
     </x-slot>
 
     <div class="row g-4 mb-4">
+        {{-- total teacher --}}
         <div class="col-12 col-md-6 col-xl-3">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body d-flex justify-content-between align-items-start">
                     <div>
                         <p class="text-muted small mb-1">Total Teachers</p>
-                        <h3 class="fw-semibold mb-0">24</h3>
+                        <h3 class="fw-semibold mb-0">{{ $teacherCount }}</h3>
                     </div>
-                    <div class="rounded-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                    <div class="rounded-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center"
+                        style="width: 48px; height: 48px;">
                         <i class="bi bi-people fs-4"></i>
                     </div>
                 </div>
             </div>
         </div>
 
+        {{-- total news --}}
         <div class="col-12 col-md-6 col-xl-3">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body d-flex justify-content-between align-items-start">
                     <div>
                         <p class="text-muted small mb-1">Total News</p>
-                        <h3 class="fw-semibold mb-0">18</h3>
+                        <h3 class="fw-semibold mb-0">{{ $postCount }}</h3>
                     </div>
-                    <div class="rounded-circle bg-success bg-opacity-10 text-success d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                    <div class="rounded-circle bg-success bg-opacity-10 text-success d-flex align-items-center justify-content-center"
+                        style="width: 48px; height: 48px;">
                         <i class="bi bi-newspaper fs-4"></i>
                     </div>
                 </div>
             </div>
         </div>
 
+        {{-- total fasilitas --}}
         <div class="col-12 col-md-6 col-xl-3">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body d-flex justify-content-between align-items-start">
                     <div>
                         <p class="text-muted small mb-1">Total Facilities</p>
-                        <h3 class="fw-semibold mb-0">12</h3>
+                        <h3 class="fw-semibold mb-0">{{ $facilityCount }}</h3>
                     </div>
-                    <div class="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                    <div class="rounded-circle bg-warning bg-opacity-10 text-warning d-flex align-items-center justify-content-center"
+                        style="width: 48px; height: 48px;">
                         <i class="bi bi-building fs-4"></i>
                     </div>
                 </div>
             </div>
         </div>
 
+        {{-- total gallery --}}
         <div class="col-12 col-md-6 col-xl-3">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body d-flex justify-content-between align-items-start">
                     <div>
                         <p class="text-muted small mb-1">Total Galleries</p>
-                        <h3 class="fw-semibold mb-0">9</h3>
+                        <h3 class="fw-semibold mb-0">{{ $galleryCount }}</h3>
                     </div>
-                    <div class="rounded-circle bg-info bg-opacity-10 text-info d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                    <div class="rounded-circle bg-info bg-opacity-10 text-info d-flex align-items-center justify-content-center"
+                        style="width: 48px; height: 48px;">
                         <i class="bi bi-images fs-4"></i>
                     </div>
                 </div>
@@ -61,6 +69,7 @@
         </div>
     </div>
 
+    {{-- latest news --}}
     <div class="row g-4">
         <div class="col-12 col-xl-8">
             <div class="card border-0 shadow-sm h-100">
@@ -71,7 +80,43 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="list-group list-group-flush">
+                    @forelse($latestPosts as $post)
+                        <a href="{{ route('admin.posts.edit', $post) }}"
+                            class="list-group-item px-0 py-3 d-flex justify-content-between">
+
+                            <div>
+
+                                <div class="fw-semibold">
+
+                                    {{ $post->title }}
+
+                                </div>
+
+                                <div class="text-muted small">
+
+                                    {{ $post->created_at->diffForHumans() }}
+
+                                </div>
+
+                            </div>
+
+                            <span class="badge bg-success">
+
+                                {{ ucfirst($post->status) }}
+
+                            </span>
+
+                        </a>
+
+                    @empty
+
+                        <div class="text-center text-muted">
+
+                            Belum ada berita.
+
+                        </div>
+                    @endforelse
+                    {{-- <div class="list-group list-group-flush">
                         <a href="#" class="list-group-item px-0 py-3 d-flex justify-content-between align-items-start">
                             <div>
                                 <div class="fw-semibold">Penerimaan Siswa Baru Tahun Ajaran 2026/2027</div>
@@ -93,12 +138,24 @@
                             </div>
                             <span class="badge bg-primary">Published</span>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
-
         <div class="col-12 col-xl-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white border-0 pb-0">
+                    <h5 class="fw-semibold mb-0">Aksi Cepat</h5>
+                </div>
+                <div class="card-body d-flex flex-column justify-content-center">
+                    <a href="{{ route('admin.posts.create') }}" class="btn btn-primary mb-3 w-100">Buat Postingan Baru</a>
+                    <a href="{{ route('admin.albums.index') }}" class="btn btn-outline-primary mb-3 w-100">Kelola Album</a>
+                    <a href="{{ route('admin.facilities.index') }}" class="btn btn-outline-primary mb-3 w-100">Kelola Fasilitas</a>
+                    <a href="{{ route('admin.settings.index') }}" class="btn btn-outline-primary w-100">Settings</a>
+                </div>
+            </div>
+        </div>
+        {{-- <div class="col-12 col-xl-4">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-header bg-white border-0 pb-0">
                     <h5 class="fw-semibold mb-0">Latest Activities</h5>
@@ -120,10 +177,10 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
-    <div class="row g-4 mt-1">
+    {{-- <div class="row g-4 mt-1">
         <div class="col-12 col-xl-8">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-header bg-white border-0 pb-0">
@@ -161,10 +218,11 @@
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body d-flex flex-column justify-content-center">
                     <h5 class="fw-semibold">Welcome back</h5>
-                    <p class="text-muted mb-3">Use the admin menu to manage school profile content, news, teachers, facilities, and galleries.</p>
+                    <p class="text-muted mb-3">Use the admin menu to manage school profile content, news, teachers,
+                        facilities, and galleries.</p>
                     <a href="{{ route('admin.settings.index') }}" class="btn btn-primary w-100">Go to Settings</a>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </x-admin-layout>

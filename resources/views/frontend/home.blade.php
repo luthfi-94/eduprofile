@@ -1,11 +1,12 @@
 <x-frontend-layout>
-    <section class="hero-section py-5 py-lg-6 text-white">
+    <section class="hero-section py-5 py-lg-6 bg-gradient-primary text-white">
         <div class="container py-5">
             <div class="row align-items-center g-5">
                 <div class="col-lg-7">
                     <p class="text-uppercase small fw-semibold mb-3 text-light">Selamat Datang di</p>
                     <h1 class="display-4 fw-bold mb-3 ">UPTD SDN 7 WAY LIMA</h1>
-                    <p class="lead mb-4">Lingkungan belajar yang terpercaya yang mendukung keunggulan akademik, karakter, dan keterampilan siap masa depan.</p>
+                    <p class="lead mb-4">Lingkungan belajar yang terpercaya yang mendukung keunggulan akademik, karakter,
+                        dan keterampilan siap masa depan.</p>
                     <div class="d-flex flex-wrap gap-3">
                         {{-- <a href="#profile" class="btn btn-light btn-lg">Discover More</a> --}}
                         <a href="{{ route('frontend.ppdb') }}" class="btn btn-outline-light btn-lg">Registrasi PPDB</a>
@@ -16,9 +17,12 @@
                         <div class="card-body p-4">
                             <h5 class="fw-bold mb-3">Mengapa Siswa Berkembang di Sini</h5>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sekolah modern dan mendukung</li>
-                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Pendidik berpengalaman</li>
-                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Pengembangan akademik dan karakter yang seimbang</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sekolah
+                                    modern dan mendukung</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Pendidik
+                                    berpengalaman</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Pengembangan
+                                    akademik dan karakter yang seimbang</li>
                             </ul>
                         </div>
                     </div>
@@ -63,14 +67,36 @@
         </div>
     </section> --}}
 
-    {{-- <section id="news" class="py-5">
+    <section id="news" class="py-5">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="fw-bold mb-0">Latest News</h2>
-                <a href="#" class="btn btn-outline-primary btn-sm">View All</a>
+                <h2 class="fw-bold mb-0">Berita Terbaru</h2>
+                {{-- <a href="#" class="btn btn-outline-primary btn-sm">Lihat Semua</a> --}}
+                <a href="{{ route('frontend.news') }}" class="btn btn-outline-primary btn-lg">
+                    Lihat Semua
+                </a>
             </div>
             <div class="row g-4">
-                <div class="col-md-4">
+                @forelse ($posts as $post)
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <p class="text-primary fw-semibold small mb-2">{!! $post->category->name ?? 'Berita' !!}</p>
+                                <h5 class="fw-semibold">{!! $post->title !!}</h5>
+                                <p class="text-muted">{!! Str::limit(strip_tags($post->content), 140) !!}</p>
+                                <a href="{{ route('frontend.news.show', $post) }}"
+                                    class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-12">
+                        <div class="alert alert-light border">Postingan berita akan muncul di sini setelah
+                            dipublikasikan.</div>
+                    </div>
+                @endforelse
+            </div>
+            {{-- <div class="col-md-4">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
                             <p class="text-primary fw-semibold small mb-2">Academic</p>
@@ -96,10 +122,10 @@
                             <p class="text-muted mb-0">Our school continues to build partnerships that support student growth beyond the classroom.</p>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> --}}
         </div>
-    </section> --}}
+        </div>
+    </section>
 
     {{-- Fasilitas --}}
     <section id="facilities" class="py-5 bg-white">
@@ -116,17 +142,13 @@
                     <div class="col-md-4">
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body p-4">
-                                @if($facility->photo)
-                                <img src="{{ asset('storage/' . $facility->photo) }}"
-                                    class="card-img-top"
-                                    alt="{{ $facility->title }}"
-                                    style="height:220px; object-fit:cover;">
-                            @else
-                                <img src="{{ asset('images/no-image.jpg') }}"
-                                    class="card-img-top"
-                                    alt="No Image"
-                                    style="height:220px; object-fit:cover;">
-                            @endif
+                                @if ($facility->photo)
+                                    <img src="{{ asset('storage/' . $facility->photo) }}" class="card-img-top"
+                                        alt="{{ $facility->title }}" style="height:220px; object-fit:cover;">
+                                @else
+                                    <img src="{{ asset('images/no-image.jpg') }}" class="card-img-top" alt="No Image"
+                                        style="height:220px; object-fit:cover;">
+                                @endif
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="fw-bold">
                                         {{ $facility->title }}
@@ -146,15 +168,14 @@
                             Belum ada data fasilitas.
                         </div>
                     </div>
-
                 @endforelse
 
             </div>
         </div>
     </section>
-    
+
     {{-- Gallery --}}
-    <section id="gallery" class="py-5 bg-primary text-white">
+    <section id="gallery" class="py-5 bg-gradient-warning text-white">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="fw-bold mb-0">Gallery Preview</h2>
@@ -162,33 +183,37 @@
                     Lihat Semua
                 </a>
             </div>
-            
+
             <div class="row g-4">
                 @forelse ($albums as $album)
                     <div class="col-md-4">
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body p-4">
                                 @if ($album->cover)
-                                    <img src="{{ asset('storage/' . $album->cover) }}" alt="{{ $album->title }}" class="img-fluid rounded mb-3" style="height: 180px; width: 100%; object-fit: cover;">
+                                    <img src="{{ asset('storage/' . $album->cover) }}" alt="{{ $album->title }}"
+                                        class="img-fluid rounded mb-3"
+                                        style="height: 180px; width: 100%; object-fit: cover;">
                                 @else
-                                    <div class="bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 180px;">
+                                    <div class="bg-light rounded d-flex align-items-center justify-content-center mb-3"
+                                        style="height: 180px;">
                                         <i class="bi bi-images fs-1 text-muted"></i>
                                     </div>
                                 @endif
-                                    <div class="card-body d-flex flex-column">
-                                        {{-- <h5 class="fw-bold">
+                                <div class="card-body d-flex flex-column">
+                                    {{-- <h5 class="fw-bold">
                                             {{ $album->title }}
                                         </h5> --}}
-                                        <h5 class="fw-semibold mt-3">
-                                            {{ Str::limit(strip_tags($album->description), 100) }}
-                                        </h5>
-                                    </div>
+                                    <h5 class="fw-semibold mt-3">
+                                        {{ Str::limit(strip_tags($album->description), 100) }}
+                                    </h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                 @empty
                     <div class="col-12">
-                        <div class="alert alert-light border">Albums will appear here once gallery content is added.</div>
+                        <div class="alert alert-light border">Albums will appear here once gallery content is added.
+                        </div>
                     </div>
                 @endforelse
                 {{-- <div class="col-md-4">
@@ -224,7 +249,7 @@
             </div>
         </div>
     </section>
-    
+
     {{-- statistik --}}
     {{-- <section class="py-5 bg-primary text-white">
         <div class="container">
@@ -259,7 +284,8 @@
             <div class="row g-4 align-items-center">
                 <div class="col-lg-7">
                     <h2 class="fw-bold mb-3">Registrasi PPDB</h2>
-                    <p class="text-muted mb-4">Bergabunglah dengan komunitas sekolah kami yang dinamis dan mulailah perjalanan belajar Anda bersama kami. Pendaftaran sekarang dibuka untuk siswa baru.</p>
+                    <p class="text-muted mb-4">Bergabunglah dengan komunitas sekolah kami yang dinamis dan mulailah
+                        perjalanan belajar Anda bersama kami. Pendaftaran sekarang dibuka untuk siswa baru.</p>
                 </div>
                 <div class="col-lg-5 text-lg-end">
                     <a href="{{ route('frontend.ppdb') }}" class="btn btn-primary btn-lg">Daftar Sekarang</a>
