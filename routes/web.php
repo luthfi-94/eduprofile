@@ -20,10 +20,16 @@ Route::name('frontend.')->group(function () {
     // Route::get('/', function () {
     //     return view('frontend.home');
     // })->name('home');
-    
+
 
     Route::get('/debug-users', function () {
         return User::select('id', 'name', 'email', 'created_at')->get();
+    });
+    Route::get('/debug-routes', function () {
+        return collect(Route::getRoutes())
+            ->map(fn($route) => $route->uri())
+            ->filter(fn($uri) => str_contains($uri, 'register'))
+            ->values();
     });
     Route::get('/', [PageController::class, 'home'])->name('home');
 
@@ -66,4 +72,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
