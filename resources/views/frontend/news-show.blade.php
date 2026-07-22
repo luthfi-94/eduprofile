@@ -1,5 +1,5 @@
 <x-frontend-layout>
-    <section class="hero-section py-5 text-white">
+    <section class="hero-section py-5">
         <div class="container py-5">
             <h1 class="display-5 fw-bold mb-3">{{ $post->title }}</h1>
             <p class="lead mb-0">{{ $post->category->name ?? 'News' }}</p>

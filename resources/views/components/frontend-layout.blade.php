@@ -78,7 +78,7 @@
                 <div class="col-lg-6">
                     <h5 class="fw-bold mb-2">UPTD SDN 7 WAY LIMA</h5>
                     <p class="mb-0 text-light">
-                        Jl. Raya Way Lima No. 7, Way Lima, Kec. Kalianda, Kabupaten Lampung Selatan, Lampung 35365
+                        Jl. Desa Gunung Rejo, Kec. Way Lima, Kab. Pesawaran, Lampung
                     </p>
                 </div>
                 <div class="col-lg-6 text-lg-end">
