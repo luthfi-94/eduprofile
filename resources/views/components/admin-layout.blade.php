@@ -14,7 +14,7 @@
 </head>
 <body class="bg-light">
     <div class="d-flex min-vh-100">
-        <aside class="d-none d-lg-flex flex-column justify-content-between bg-gradient-primary text-white" style="width: 260px;">
+        <aside class="d-none d-lg-flex flex-column justify-content-between bg-gradient-warning text-white" style="width: 260px;">
             <div>
                 <div class="d-flex align-items-center gap-2 px-4 py-4 border-bottom border-white border-opacity-25">
                     <div class="rounded-circle bg-white text-primary d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
