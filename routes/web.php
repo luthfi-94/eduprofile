@@ -14,11 +14,17 @@ use App\Http\Controllers\PpdbInfoController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 Route::name('frontend.')->group(function () {
     // Route::get('/', function () {
     //     return view('frontend.home');
     // })->name('home');
+    
+
+    Route::get('/debug-users', function () {
+        return User::select('id', 'name', 'email', 'created_at')->get();
+    });
     Route::get('/', [PageController::class, 'home'])->name('home');
 
     Route::get('/school-profile', [PageController::class, 'schoolProfile'])->name('school-profile');
