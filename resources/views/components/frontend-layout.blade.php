@@ -39,29 +39,32 @@
                 <div class="collapse navbar-collapse" id="frontendNavbar">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
                         <li class="nav-item"><a
+                                class="nav-link {{ request()->routeIs('frontend.home') ? 'active fw-semibold text-primary' : '' }}"
+                                href="{{ route('frontend.home') }}">Beranda</a></li>
+                        <li class="nav-item"><a
                                 class="nav-link {{ request()->routeIs('frontend.school-profile') ? 'active fw-semibold text-primary' : '' }}"
-                                href="{{ route('frontend.school-profile') }}">School Profile</a></li>
+                                href="{{ route('frontend.school-profile') }}">Profil Sekolah</a></li>
                         <li class="nav-item"><a
                                 class="nav-link {{ request()->routeIs('frontend.principal') ? 'active fw-semibold text-primary' : '' }}"
-                                href="{{ route('frontend.principal') }}">Principal</a></li>
+                                href="{{ route('frontend.principal') }}">Kepala Sekolah</a></li>
                         <li class="nav-item"><a
                                 class="nav-link {{ request()->routeIs('frontend.teachers') ? 'active fw-semibold text-primary' : '' }}"
-                                href="{{ route('frontend.teachers') }}">Teachers</a></li>
+                                href="{{ route('frontend.teachers') }}">Guru</a></li>
                         <li class="nav-item"><a
                                 class="nav-link {{ request()->routeIs('frontend.facilities') ? 'active fw-semibold text-primary' : '' }}"
-                                href="{{ route('frontend.facilities') }}">Facilities</a></li>
+                                href="{{ route('frontend.facilities') }}">Fasilitas</a></li>
                         <li class="nav-item"><a
                                 class="nav-link {{ request()->routeIs('frontend.news*') ? 'active fw-semibold text-primary' : '' }}"
-                                href="{{ route('frontend.news') }}">News</a></li>
+                                href="{{ route('frontend.news') }}">Berita</a></li>
                         <li class="nav-item"><a
                                 class="nav-link {{ request()->routeIs('frontend.gallery*') ? 'active fw-semibold text-primary' : '' }}"
-                                href="{{ route('frontend.gallery') }}">Gallery</a></li>
+                                href="{{ route('frontend.gallery') }}">Galeri</a></li>
                         <li class="nav-item"><a
                                 class="nav-link {{ request()->routeIs('frontend.ppdb') ? 'active fw-semibold text-primary' : '' }}"
                                 href="{{ route('frontend.ppdb') }}">PPDB</a></li>
                         <li class="nav-item"><a
                                 class="nav-link {{ request()->routeIs('frontend.contact') ? 'active fw-semibold text-primary' : '' }}"
-                                href="{{ route('frontend.contact') }}">Contact</a></li>
+                                href="{{ route('frontend.contact') }}">Kontak</a></li>
                     </ul>
                 </div>
             </div>
