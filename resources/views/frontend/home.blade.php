@@ -144,15 +144,13 @@
                             <div class="card-body p-4">
                                 @if ($facility->photo)
                                     <img src="{{ asset('storage/' . $facility->photo) }}" class="card-img-top"
-                                        alt="{{ $facility->title }}" style="height:220px; object-fit:cover;">
+                                        alt="{{ $facility->name }}" style="height:220px; object-fit:cover;">
                                 @else
                                     <img src="{{ asset('images/no-image.jpg') }}" class="card-img-top" alt="No Image"
                                         style="height:220px; object-fit:cover;">
                                 @endif
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="fw-bold">
-                                        {{ $facility->title }}
-                                    </h5>
+                                    <h5 class="fw-bold">{{ $facility->name }}</h5>
                                     <h5 class="fw-semibold mt-3">
                                         {{ Str::limit(strip_tags($facility->description), 100) }}
                                     </h5>
@@ -200,9 +198,9 @@
                                     </div>
                                 @endif
                                 <div class="card-body d-flex flex-column">
-                                    {{-- <h5 class="fw-bold">
+                                    <h5 class="fw-bold">
                                             {{ $album->title }}
-                                        </h5> --}}
+                                        </h5>
                                     <h5 class="fw-semibold mt-3">
                                         {{ Str::limit(strip_tags($album->description), 100) }}
                                     </h5>
